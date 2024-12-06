@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museo Hipervincular - Juego</title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center h-screen">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-4xl" x-data="gameData">
+        <header class="text-center">
+            <h1 class="text-3xl font-bold text-gray-800">Museo Hipervincular</h1>
+        </header>
+        <nav class="mt-6">
+            <ul class="flex justify-center space-x-4 list-none">
+                <li>
+                    <a href="../index.html" class="px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300">Home</a>
+                </li>
+                <li>
+                    <a href="index.html" class="px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300">Juego</a>
+                </li>
+                <li>
+                    <a href="../textocomoimagen/index.html" class="px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300">Texto como Imagen</a>
+                </li>
+                <li>
+                    <a href="../activismo/index.html" class="px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300">Activismo</a>
+                </li>
+                <li>
+                    <a href="../retratos/index.html" class="px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300">Retratos</a>
+                </li>
+                <li>
+                    <a href="../textura/index.html" class="px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300">Texturas</a>
+                </li>
+                <li>
+                    <a href="../espacioluz/index.html" class="px-4 py-2 bg-gray-200 rounded-full text-gray-700 hover:bg-gray-300">Espacio Luz</a>
+                </li>
+            </ul>
+        </nav>
+
+        
+        <main x-show="!started" class="mt-10 text-center">
+            <div class="bg-gray-100 p-6 rounded-lg">
+                <p class="text-gray-800 text-lg">
+                    Te invitamos a participar de un juego de preguntas y respuestas: <strong>“¿Reconoces al artista detrás de esta obra?”</strong>.
+                    Tendrás 4 opciones con diferentes nombres de artistas donde una sola será la correcta.
+                </p>
+                <p class="text-gray-800 mt-2">
+                    Se juegan 10 preguntas. Quien responda correctamente al menos <strong>6 preguntas</strong> ganará el juego.
+                </p>
+                <p class="text-gray-800 mt-2">
+                    Tienes <strong>3 segundos</strong> para responder cada pregunta.
+                </p>
+            </div>
+            <button 
+                class="mt-6 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800"
+                @click="startGame">
+                COMENZAR JUEGO
+            </button>
+        </main>
+
+        <!-- Juego -->
+        <main x-show="started" class="mt-10 text-center">
+            <h2 id="question-title" class="text-2xl font-bold text-gray-800" x-text="currentQuestionText"></h2>
+            <div class="mt-6">
+                <img id="question-image" :src="currentQuestionImage" alt="Obra de arte" class="mx-auto rounded-lg max-w-full h-auto" style="max-width: 300px;">
+            </div>
+            <div id="options-container" class="mt-6 grid grid-cols-2 gap-4">
+                <template x-for="option in currentOptions" :key="option">
+                    <button 
+                        class="bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
+                        @click="checkAnswer(option)" 
+                        x-text="option">
+                    </button>
+                </template>
+            </div>
+            <div class="mt-6 flex justify-between items-center">
+                <div class="text-black font-bold bg-gray-200 rounded-lg px-4 py-2">
+                    PUNTOS: <span id="score" x-text="score"></span>
+                </div>
+                <div id="timer" class="text-white font-bold bg-black rounded-lg px-4 py-2 text-2xl" x-text="timer"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/scriptjuego.js"></script>
+</body>
+</html>
