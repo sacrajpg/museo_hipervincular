@@ -54,12 +54,12 @@ document.addEventListener('alpine:init', () => {
             },
         ],
         currentIndex: 0,
-        timer: 3, // Tiempo por pregunta
+        timer: 3, // Tiempo
         interval: null,
         score: 0,
         started: false, // Estado del inicio del juego
 
-        // Getters para los datos de la pregunta actual
+        // datos de la pregunta actual
         get currentQuestionImage() {
             return this.questions[this.currentIndex]?.image || "";
         },
@@ -70,27 +70,27 @@ document.addEventListener('alpine:init', () => {
             return "¿Reconoces al artista detrás de esta obra?";
         },
 
-        // Iniciar el juego
+        // Iniciar 
         startGame() {
             this.started = true;
-            this.score = 0; // Reinicia el puntaje al iniciar
-            this.currentIndex = 0; // Reinicia el índice de preguntas
+            this.score = 0; // Reinicia puntaje 
+            this.currentIndex = 0; // Reinicia preguntas
             this.startTimer();
         },
 
-        // Iniciar el temporizador
+        // temporizador
         startTimer() {
             this.stopTimer();
-            this.timer = 3; // Reinicia el temporizador a 3 segundos
+            this.timer = 3; //3 segundos
             this.interval = setInterval(() => {
                 this.timer--;
                 if (this.timer <= 0) {
                     this.checkAnswer(null); // Tiempo agotado
                 }
-            }, 1000); // Disminuir el contador cada segundo
+            }, 1000); // Disminuir segundo
         },
 
-        // Detener el temporizador
+        // Detener temporizador
         stopTimer() {
             clearInterval(this.interval);
         },
@@ -102,7 +102,7 @@ document.addEventListener('alpine:init', () => {
 
             // Validar respuesta correcta
             if (option === currentQuestion?.correct) {
-                this.score++; // Incrementar puntaje si la respuesta es correcta
+                this.score++; // Incrementar puntaje 
                 alert("Respuesta Correcta");
             } else if (option === null) {
                 alert("Tiempo agotado");
@@ -112,17 +112,17 @@ document.addEventListener('alpine:init', () => {
             this.nextQuestion();
         },
 
-        // Pasar a la siguiente pregunta
+        // siguiente pregunta
         nextQuestion() {
             if (this.currentIndex < this.questions.length - 1) {
                 this.currentIndex++;
                 this.startTimer();
             } else {
-                this.endGame(); // Llamar a la función para finalizar el juego
+                this.endGame(); // función finalizar juego
             }
         },
 
-        // Finalizar el juego
+        // Finalizar 
         endGame() {
             if (this.score >= 6) {
                 alert(`¡Ganaste el juego! Respuestas correctas: ${this.score}`);
@@ -132,7 +132,7 @@ document.addEventListener('alpine:init', () => {
             this.resetGame();
         },
 
-        // Reiniciar el juego
+        // Reiniciar juego
         resetGame() {
             this.started = false;
             this.score = 0;

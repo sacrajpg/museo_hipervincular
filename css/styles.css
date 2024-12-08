@@ -1,0 +1,24 @@
+/* Slider */
+.swiper-container {
+    width: 100%; 
+    max-width: 800px; 
+    height: 200px; 
+    overflow: hidden; 
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    max-height: 200px;
+    object-fit: cover;
+    width: auto;
+    margin: auto;
+}
+
+#imageModal {
+    z-index: 50; 
+}
