@@ -1,3 +1,52 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Btns enlaces */
+.button-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0.375rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button-link:hover {
+    background-color: #333;
+}
+
+/* Imgs */
+img {
+    max-height: 200px; 
+    max-width: 150px;  
+    display: block;
+    margin: auto;
+}
+
+
+
+
+/* Secciones grales */
+.main-content {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.image-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
 /* Slider */
 .swiper-container {
     width: 100%; 
