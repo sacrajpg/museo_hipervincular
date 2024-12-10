@@ -2,17 +2,17 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('gameData', () => ({
         questions: [
             { 
-                image: "../juego/img/afiche_contra_gatillo_facil_12_abril_98.jpg", 
+                image: "../juego/img/afichecontragatillofacil12abril98.jpg", 
                 options: ["Barbara Kruger", "GAC", "Doris Salcedo", "Leon Ferrari"], 
                 correct: "GAC" 
             },
             { 
-                image: "../juego/img/barbarakruger_untitled_1989.jpg", 
+                image: "../juego/img/barbarakrugeruntitled1989.jpg", 
                 options: ["Boltansky", "James Turrell", "Barbara Kruger", "Doris Salcedo"], 
                 correct: "Barbara Kruger" 
             },
             { 
-                image: "../juego/img/dan_flavin_3.jpg", 
+                image: "../juego/img/danflavin3.jpg", 
                 options: ["James Turrell", "Tracey Emin", "Boltansky", "Dan Flavin"], 
                 correct: "Dan Flavin" 
             },
@@ -22,7 +22,7 @@ document.addEventListener('alpine:init', () => {
                 correct: "Doris Salcedo" 
             },
             { 
-                image: "../juego/img/desert_1975.jpg", 
+                image: "../juego/img/desert1975.jpg", 
                 options: ["Tracey Emin", "Vija Celmins", "Leon Ferrari", "GAC"], 
                 correct: "Vija Celmins" 
             },
@@ -32,13 +32,13 @@ document.addEventListener('alpine:init', () => {
                 correct: "Leon Ferrari" 
             },
             { 
-                image: "../juego/img/james_turrell_ekebergparken_sculpture_park.jpg", 
+                image: "../juego/img/jamesturrellekebergparkensculpturepark.jpg", 
                 options: ["James Turrell", "Barbara Kruger", "Dan Flavin", "Boltansky"], 
                 correct: "James Turrell" 
             },
                     
             { 
-                image: "../juego/img/tracey emin_everyone_i_have_ever_slept_with_1963_1995.jpg", 
+                image: "../juego/img/traceyemineveryoneihaveeversleptwith19631995.jpg", 
                 options: ["Doris Salcedo", "Barbara Kruger", "Dan Flavin", "Tracey Emin"], 
                 correct: "Tracey Emin" 
             },
@@ -48,7 +48,7 @@ document.addEventListener('alpine:init', () => {
                 correct: "Graciela Sacco" 
             },
             { 
-                image: "../juego/img/the_whispers_sound_installation_2008.jpg", 
+                image: "../juego/img/thewhisperssoundinstallation2008.jpg", 
                 options: ["Barbara Kruger", "James Turrell", "Tracey Emin", "Boltansky"], 
                 correct: "Boltansky" 
             },

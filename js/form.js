@@ -24,6 +24,6 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         return;
     }
 
-    // Si pasa la validación, enviamos el formulario
+    // envio del form
     this.submit();
 });
