@@ -71,3 +71,44 @@ img {
 #imageModal {
     z-index: 50; 
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados */
+@media (max-width: 480px) {
+  nav ul {
+    display: flex;             /* Coloca los elementos en línea */
+    flex-wrap: wrap;           /* Permite que los elementos se ajusten a una nueva fila si es necesario */
+    justify-content: space-evenly; /* Distribuye uniformemente los botones */
+    align-items: center;       /* Centra verticalmente los elementos */
+    padding: 0;                /* Elimina el padding del contenedor */
+    margin: 0;                 /* Elimina el margen del contenedor */
+    list-style: none;          /* Elimina los puntos de las listas */
+    width: 100%;               /* Asegura que el nav ocupe todo el ancho de la pantalla */
+    box-sizing: border-box;    /* Incluye padding y borde en el cálculo del ancho */
+  }
+
+  nav ul li {
+    flex: 1 1 auto;            /* Los elementos se ajustan automáticamente al espacio disponible */
+    text-align: center;        /* Centra el contenido de cada botón */
+    max-width: 100px;          /* Limita el ancho máximo de cada botón para evitar que sean demasiado grandes */
+  }
+
+  nav ul li a {
+    display: block;            /* Asegura que el enlace ocupe todo el espacio del `li` */
+    padding: 10px 5px;         /* Espaciado interno en cada enlace */
+    text-decoration: none;     /* Elimina subrayado */
+    font-size: 14px;           /* Ajusta el tamaño de la fuente */
+    color: #1d4ed8;            /* Color del texto (personalízalo si es necesario) */
+    white-space: nowrap;       /* Evita que el texto de los botones se divida en varias líneas */
+    overflow: hidden;          /* Esconde el contenido desbordado */
+    text-overflow: ellipsis;   /* Agrega "..." si el texto es demasiado largo */
+  }
+
+  nav ul li a:hover {
+    background-color: #e0f2fe; /* Cambia el fondo al pasar el cursor */
+  }
+}
+

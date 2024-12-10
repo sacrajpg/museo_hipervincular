@@ -1,4 +1,4 @@
-document.getElementById('contactForm').addEventListener('submit', function(event) {
+document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const nombre = document.getElementById('nombre').value.trim();
@@ -24,6 +24,6 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         return;
     }
 
-    // envio del form
-    this.submit();
+    // Enviar formulario automáticamente tras la validación
+    event.target.submit();
 });
