@@ -42,11 +42,7 @@ document.addEventListener('alpine:init', () => {
                 options: ["Doris Salcedo", "Barbara Kruger", "Dan Flavin", "Tracey Emin"], 
                 correct: "Tracey Emin" 
             },
-            { 
-                image: "../juego/img/bocanada.jpg", 
-                options: ["Barbara Kruger", "Graciela Sacco", "Boltansky", "Dan Flavin"], 
-                correct: "Graciela Sacco" 
-            },
+           
             { 
                 image: "../juego/img/thewhisperssoundinstallation2008.jpg", 
                 options: ["Barbara Kruger", "James Turrell", "Tracey Emin", "Boltansky"], 
