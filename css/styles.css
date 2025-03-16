@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Btns enlaces */
+/* Btns */
 .button-link {
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -20,16 +20,13 @@ body {
 
 /* Imgs */
 img {
-    max-height: 200px; 
-    max-width: 150px;  
+    max-height: 200px;
+    max-width: 150px;
     display: block;
     margin: auto;
 }
 
-
-
-
-/* Secciones grales */
+/* Contenido gral */
 .main-content {
     margin-top: 2.5rem;
     text-align: center;
@@ -47,12 +44,16 @@ img {
     font-weight: 600;
 }
 
-/* Slider */
+/* Swiper galery */
 .swiper-container {
-    width: 100%; 
-    max-width: 800px; 
-    height: 200px; 
-    overflow: hidden; 
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .swiper-slide {
@@ -62,53 +63,127 @@ img {
 }
 
 .swiper-slide img {
-    max-height: 200px;
+    max-height: 300px;
     object-fit: cover;
     width: auto;
     margin: auto;
 }
 
-#imageModal {
-    z-index: 50; 
+/* Flechas  navegacion */
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
-/* Estilos personalizados */
+.swiper-button-prev {
+    left: 10px;
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+/* Responsive */
 @media (max-width: 480px) {
-  nav ul {
-    display: flex;             /* Coloca los elementos en línea */
-    flex-wrap: wrap;           /* Permite que los elementos se ajusten a una nueva fila si es necesario */
-    justify-content: space-evenly; /* Distribuye uniformemente los botones */
-    align-items: center;       /* Centra verticalmente los elementos */
-    padding: 0;                /* Elimina el padding del contenedor */
-    margin: 0;                 /* Elimina el margen del contenedor */
-    list-style: none;          /* Elimina los puntos de las listas */
-    width: 100%;               /* Asegura que el nav ocupe todo el ancho de la pantalla */
-    box-sizing: border-box;    /* Incluye padding y borde en el cálculo del ancho */
-  }
+    .swiper-container {
+        height: auto;
+    }
 
-  nav ul li {
-    flex: 1 1 auto;            /* Los elementos se ajustan automáticamente al espacio disponible */
-    text-align: center;        /* Centra el contenido de cada botón */
-    max-width: 100px;          /* Limita el ancho máximo de cada botón para evitar que sean demasiado grandes */
-  }
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 30px;
+        height: 30px;
+    }
 
-  nav ul li a {
-    display: block;            /* Asegura que el enlace ocupe todo el espacio del `li` */
-    padding: 10px 5px;         /* Espaciado interno en cada enlace */
-    text-decoration: none;     /* Elimina subrayado */
-    font-size: 14px;           /* Ajusta el tamaño de la fuente */
-    color: #1d4ed8;            /* Color del texto (personalízalo si es necesario) */
-    white-space: nowrap;       /* Evita que el texto de los botones se divida en varias líneas */
-    overflow: hidden;          /* Esconde el contenido desbordado */
-    text-overflow: ellipsis;   /* Agrega "..." si el texto es demasiado largo */
-  }
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 5px;
+    }
 
-  nav ul li a:hover {
-    background-color: #e0f2fe; /* Cambia el fondo al pasar el cursor */
-  }
+    nav ul li {
+        flex: 1 1 auto;
+        text-align: center;
+        min-width: fit-content;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px 8px;
+        text-decoration: none;
+        font-size: 14px;
+        color: #1d4ed8;
+        background-color: #f1f5f9;
+        border-radius: 8px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    nav ul li a:hover {
+        background-color: #e0f2fe;
+    }
+}
+
+/* Modal para img en pantalla completa */
+#imageModal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000; /* modal al frente */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+#imageModal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+#modalImage {
+    max-height: 90vh;
+    max-width: 90vw;
+    z-index: 1001; /* imagen ampliada al frente */
+    position: relative; /* imagen sobre otros elementos */
+}
+
+/* Btn cerrar */
+#closeModal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1002; /* por encima de la imagen */
 }
 

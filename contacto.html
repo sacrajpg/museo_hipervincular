@@ -27,18 +27,53 @@
             <div class="bg-gray-100 p-6 rounded-lg form-container">
                 <form id="contactForm" action="https://formsubmit.co/agostina.santoliquido@gmail.com" method="POST" class="space-y-4">
                     <input type="hidden" name="_captcha" value="false">
+                    
                     <div>
                         <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
                     </div>
+
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
                         <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
                     </div>
+
                     <div>
                         <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje:</label>
                         <textarea id="mensaje" name="mensaje" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" rows="4" required></textarea>
                     </div>
+
+                    <!-- Radio -->
+                    <fieldset>
+                        <legend class="block text-sm font-medium text-gray-700">¿Cómo nos conociste?</legend>
+                        <div>
+                            <input type="radio" id="redes_sociales" name="opcion_radio" value="redes_sociales" required>
+                            <label for="redes_sociales">Redes Sociales</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="amigxs" name="opcion_radio" value="amigxs">
+                            <label for="amigos">Amigxs</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="busqueda" name="opcion_radio" value="busqueda">
+                            <label for="busqueda">Búsqueda en Internet</label>
+                        </div>
+                    </fieldset>
+
+                    <!-- Checkbox -->
+                    <fieldset>
+                        <legend class="block text-sm font-medium text-gray-700">Temas de interés</legend>
+                        <div>
+                            <input type="checkbox" id="arte" name="interes_arte" value="arte">
+                            <label for="arte">Arte</label>
+                        </div>
+                      
+                        <div>
+                            <input type="checkbox" id="historia" name="interes_historia" value="historia">
+                            <label for="historia">Historia</label>
+                        </div>
+                    </fieldset>
+
                     <div>
                         <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600">Enviar</button>
                     </div>

@@ -4,8 +4,8 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     const nombre = document.getElementById('nombre').value.trim();
     const email = document.getElementById('email').value.trim();
     const mensaje = document.getElementById('mensaje').value.trim();
-
-    // Validación
+    
+    // Validacion inputs
     const nombreRegex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -24,6 +24,13 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         return;
     }
 
-    // Enviar formulario automáticamente tras la validación
+    // Validacion radio 
+    const radioSeleccionado = document.querySelector('input[name="opcion_radio"]:checked');
+    if (!radioSeleccionado) {
+        alert('Por favor, selecciona cómo nos conociste.');
+        return;
+    }
+
+    // Enviar form post validacion
     event.target.submit();
 });

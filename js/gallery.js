@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-       const swiper = new Swiper('.swiper-container', {
+    const swiper = new Swiper('.swiper-container', {
         slidesPerView: 1,
         spaceBetween: 0,
         navigation: {
@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
             prevEl: '.swiper-button-prev',
         },
         loop: true,
-        allowTouchMove: false,
+        allowTouchMove: true, // swipe en móviles
     });
 
-    // imagen tamaño al 100
+    // Modal img en pantalla completa
     const modal = document.getElementById("imageModal");
     const modalImage = document.getElementById("modalImage");
     const closeModal = document.getElementById("closeModal");
@@ -18,14 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     previewImages.forEach(img => {
         img.addEventListener("click", () => {
-            modalImage.src = img.src; 
-            modal.classList.remove("hidden"); // Mostrar tamaño al 100
+            modalImage.src = img.src;
+            modal.classList.add("show"); // muestra modal
+            modal.style.zIndex = "1000"; // modal al frente
+            modalImage.style.zIndex = "1001"; 
+            closeModal.style.zIndex = "1002"; // Btn cerrar
         });
     });
 
     closeModal.addEventListener("click", () => {
-        modal.classList.add("hidden"); // Ocultar tamaño al 100
-        modalImage.src = ""; // Limpia imagen 
+        modal.classList.remove("show"); // oculta  modal
+        modalImage.src = "";
     });
 
     // Ocultar - Mostrar galería

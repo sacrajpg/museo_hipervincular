@@ -43,7 +43,7 @@ document.addEventListener('alpine:init', () => {
                 correct: "Tracey Emin" 
             },
             { 
-                image: "../juego/img/Bocanada3.jpg", 
+                image: "../juego/img/bocanada3.jpg", 
                 options: ["Barbara Kruger", "Graciela Sacco", "Boltansky", "Dan Flavin"], 
                 correct: "Graciela Sacco" 
             },
@@ -54,12 +54,12 @@ document.addEventListener('alpine:init', () => {
             },
         ],
         currentIndex: 0,
-        timer: 3, // Tiempo
+        timer: 3, // tiempo
         interval: null,
         score: 0,
-        started: false, // Estado del inicio del juego
+        started: false, // estado inicio del juego
 
-        // datos de la pregunta actual
+        // datos pregunta actual
         get currentQuestionImage() {
             return this.questions[this.currentIndex]?.image || "";
         },
@@ -73,8 +73,8 @@ document.addEventListener('alpine:init', () => {
         // Iniciar 
         startGame() {
             this.started = true;
-            this.score = 0; // Reinicia puntaje 
-            this.currentIndex = 0; // Reinicia preguntas
+            this.score = 0; // reinicia ptos 
+            this.currentIndex = 0; // reinicia pregs
             this.startTimer();
         },
 
@@ -85,9 +85,9 @@ document.addEventListener('alpine:init', () => {
             this.interval = setInterval(() => {
                 this.timer--;
                 if (this.timer <= 0) {
-                    this.checkAnswer(null); // Tiempo agotado
+                    this.checkAnswer(null); // tiempo agotado
                 }
-            }, 1000); // Disminuir segundo
+            }, 1000); // pasa segs
         },
 
         // Detener temporizador
@@ -102,7 +102,7 @@ document.addEventListener('alpine:init', () => {
 
             // Validar respuesta correcta
             if (option === currentQuestion?.correct) {
-                this.score++; // Incrementar puntaje 
+                this.score++; // sube puntaje 
                 alert("Respuesta Correcta");
             } else if (option === null) {
                 alert("Tiempo agotado");
