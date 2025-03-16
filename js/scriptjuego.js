@@ -43,7 +43,7 @@ document.addEventListener('alpine:init', () => {
                 correct: "Tracey Emin" 
             },
             { 
-                image: "../juego/img/bocanada3.jpg", 
+                image: "../juego/img/bocanada.jpg", 
                 options: ["Barbara Kruger", "Graciela Sacco", "Boltansky", "Dan Flavin"], 
                 correct: "Graciela Sacco" 
             },
